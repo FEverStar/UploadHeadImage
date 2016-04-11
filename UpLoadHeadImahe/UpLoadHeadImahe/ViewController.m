@@ -51,18 +51,20 @@
     UIAlertAction* fromPhotoAction = [UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault                                                                 handler:^(UIAlertAction * action) {
         weak_self.picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [weak_self presentViewController:weak_self.picker animated:YES completion:nil];
+        NSLog(@"从相册选择");
     }];
     UIAlertAction* fromCameraAction = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault                                                             handler:^(UIAlertAction * action) {
-        
+        NSLog(@"相机");
+
         UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
         if(! [UIImagePickerController isSourceTypeAvailable:sourceType]){
             NSString *tips = @"相机不可用";
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"无法使用相机" message:tips preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-                NSLog(@"The \"Okay/Cancel\" alert's cancel action occured.");
+                NSLog(@"取消");
             }];
             UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                NSLog(@"The \"Okay/Cancel\" alert's other action occured.");
+                NSLog(@"确定");
             }];
             [alertController addAction:cancelAction];
             [alertController addAction:otherAction];
@@ -75,10 +77,10 @@
             NSString *tips = @"请在iPhone的“设置-隐私-相机”中允许访问相机";
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"无法使用相机" message:tips preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-                NSLog(@"The \"Okay/Cancel\" alert's cancel action occured.");
+                NSLog(@"取消");
             }];
             UIAlertAction *otherAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                NSLog(@"The \"Okay/Cancel\" alert's other action occured.");
+                NSLog(@"确定");
             }];
             [alertController addAction:cancelAction];
             [alertController addAction:otherAction];
