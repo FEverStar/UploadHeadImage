@@ -12,6 +12,8 @@
 
 
 #define AlertViewTag_NoAuthor 100
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+
 
 @interface ViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) UIImageView *headImgView;
@@ -33,6 +35,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(onMoreClick:)];
     
     _headImgView = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    _headImgView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH);
+    _headImgView.center = self.view.center;
     [self.view addSubview:_headImgView];
     
 
